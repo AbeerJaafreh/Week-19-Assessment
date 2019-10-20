@@ -10,13 +10,13 @@ app.get('/', (req, res) => {
   res.json('server is working');
 });
 
-app.get('/getAllTasks', (req, res) => {
+app.get('/tasks', (req, res) => {
   mongo.getTasks(result => {
     res.json(result);
   });
 });
 
-app.post('/tasks', (req, res) => {
+app.post('/addNewTask', (req, res) => {
   let newTask = req.body;
   mongo.addTask(newTask, result => {
     res.json(result);
@@ -24,11 +24,21 @@ app.post('/tasks', (req, res) => {
 });
 
 // Q3: we have 6 errors here please fix them [6 pt]
-app.get('/tasks', (req, res) => {
-  let id = req.params;
-  mongo.updateTask(ID, result => {
-    res(ID);
-  });
+// app.get('/tasks', (req, res) => {
+//   let id = req.params;
+//   mongo.updateTask(ID, result => {
+//     res(ID);
+//   });
+// });
+
+app.put('/toggleTask/:id', (req, res) => { //1+2
+  let id = req.params.id;//3
+  mongo.updateTask(
+    id,   //4
+    result => {    //5
+      res.json(id);//6
+    }
+  );
 });
 
 app.delete('/tasks/:id', (req, res) => {
