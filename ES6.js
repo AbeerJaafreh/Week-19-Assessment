@@ -7,7 +7,10 @@ var result="My name is: " + name + "and my age is: " + age
 */
 // 1) WRITE YOUR CODE UNDER THIS LINE
 
-
+name="Alex";
+age=25;
+result=`My name is: ${name} and my age is: ${age}`;
+console.log(result);
 
 
 
@@ -25,3 +28,10 @@ var object={
 }
  */
 // 2) WRITE YOUR CODE UNDER THIS LINE
+food="Fried Chicken"
+ color="Blue"
+ object={food,
+  color=(a,b)=>{
+    return a * b
+  }
+}
